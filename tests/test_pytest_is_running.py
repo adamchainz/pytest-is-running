@@ -7,8 +7,6 @@ from typing import List
 
 import pytest
 
-pytest_plugins = ["pytester"]
-
 
 @pytest.fixture()
 def our_tmp_path(tmp_path):
