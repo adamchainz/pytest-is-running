@@ -56,6 +56,6 @@ The package registers its plugin hooks as early as possible in pytest’s proces
 Rationale
 =========
 
-This plugin is an alternative to re-implementing `the pattern in the Pytest documentation <https://docs.pytest.org/en/latest/example/simple.html#detect-if-running-from-within-a-pytest-run`__.
+This plugin is an alternative to re-implementing `the pattern in the Pytest documentation <https://docs.pytest.org/en/latest/example/simple.html#detect-if-running-from-within-a-pytest-run>`__.
 As a plugin, it is loaded earlier than ``conftest.py`` or any other code in your project.
 This makes it a more robust way of checking whether Pytest is currently running.
