@@ -1,18 +1,44 @@
+import os
 import subprocess
 import sys
 from pathlib import Path
 from textwrap import dedent
 from typing import List
 
+import pytest
+
 pytest_plugins = ["pytester"]
 
 
+@pytest.fixture()
+def our_tmp_path(tmp_path):
+    (tmp_path / "sitecustomize.py").write_text(
+        dedent(
+            """\
+            import coverage
+            coverage.process_startup()
+            """
+        )
+    )
+    yield tmp_path
+
+
+SETUP_CFG_PATH = Path(__file__).resolve().parent.parent / "setup.cfg"
+
+
 def run_and_check(command: List[str], cwd: Path) -> None:
-    subprocess.run([sys.executable] + command, check=True)
+    env = dict(
+        os.environ, PYTHONPATH=str(cwd), COVERAGE_PROCESS_START=str(SETUP_CFG_PATH)
+    )
+    subprocess.run(
+        [sys.executable] + command,
+        check=True,
+        env=env,
+    )
 
 
-def test_not_running(tmp_path):
-    example = tmp_path / "example.py"
+def test_not_running(our_tmp_path):
+    example = our_tmp_path / "example.py"
     example.write_text(
         dedent(
             """\
@@ -22,11 +48,11 @@ def test_not_running(tmp_path):
         )
     )
 
-    run_and_check([str(example)], cwd=tmp_path)
+    run_and_check([str(example)], cwd=our_tmp_path)
 
 
-def test_running(tmp_path):
-    example = tmp_path / "example.py"
+def test_running(our_tmp_path):
+    example = our_tmp_path / "example.py"
     example.write_text(
         dedent(
             """\
@@ -39,11 +65,11 @@ def test_running(tmp_path):
         )
     )
 
-    run_and_check(["-m", "pytest", str(example)], cwd=tmp_path)
+    run_and_check(["-m", "pytest", str(example)], cwd=our_tmp_path)
 
 
-def test_running_plugin_ignored(tmp_path):
-    example = tmp_path / "example.py"
+def test_running_plugin_ignored(our_tmp_path):
+    example = our_tmp_path / "example.py"
     example.write_text(
         dedent(
             """\
@@ -55,11 +81,13 @@ def test_running_plugin_ignored(tmp_path):
         )
     )
 
-    run_and_check(["-m", "pytest", "-p", "no:is_running", str(example)], cwd=tmp_path)
+    run_and_check(
+        ["-m", "pytest", "-p", "no:is_running", str(example)], cwd=our_tmp_path
+    )
 
 
-def test_running_wrapper(tmp_path):
-    example = tmp_path / "example.py"
+def test_running_wrapper(our_tmp_path):
+    example = our_tmp_path / "example.py"
     example.write_text(
         dedent(
             """\
@@ -71,7 +99,7 @@ def test_running_wrapper(tmp_path):
             """
         )
     )
-    wrapper = tmp_path / "wrapper.py"
+    wrapper = our_tmp_path / "wrapper.py"
     wrapper.write_text(
         dedent(
             """\
@@ -86,4 +114,4 @@ def test_running_wrapper(tmp_path):
         )
     )
 
-    run_and_check([str(wrapper)], cwd=tmp_path)
+    run_and_check([str(wrapper)], cwd=our_tmp_path)

@@ -5,6 +5,9 @@ pytest-is-running
 .. image:: https://img.shields.io/github/workflow/status/adamchainz/pytest-is-running/CI/main?style=for-the-badge
    :target: https://github.com/adamchainz/pytest-is-running/actions?workflow=CI
 
+.. image:: https://img.shields.io/badge/Coverage-100%25-success?style=for-the-badge
+  :target: https://github.com/adamchainz/pytest-is-running/actions?workflow=CI
+
 .. image:: https://img.shields.io/pypi/v/pytest-is-running.svg?style=for-the-badge
    :target: https://pypi.org/project/pytest-is-running/
 
