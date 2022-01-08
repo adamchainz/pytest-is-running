@@ -33,8 +33,9 @@ Python 3.6 to 3.10 supported.
 
 ----
 
-**Testing a Django project?**
-Check out my book `Speed Up Your Django Tests <https://gumroad.com/l/suydt>`__ which covers loads of best practices so you can write faster, more accurate tests.
+**Working on a Django project?**
+Check out my book `Boost Your Django DX <https://adamchainz.gumroad.com/l/byddx>`__ which covers many ways to improve your development experience.
+I created pytest-is-running whilst working on the book!
 
 ----
 
