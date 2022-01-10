@@ -29,7 +29,7 @@ Install with:
 
     python -m pip install pytest-is-running
 
-Python 3.6 to 3.10 supported.
+Python 3.7 to 3.10 supported.
 
 ----
 
