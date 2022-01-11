@@ -7,6 +7,9 @@ from typing import List
 
 import pytest
 
+# To prevent CoverageWarning in the main process:
+import pytest_is_running  # noqa: F401
+
 
 @pytest.fixture()
 def our_tmp_path(tmp_path):
