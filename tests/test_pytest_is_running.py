@@ -1,9 +1,10 @@
+from __future__ import annotations
+
 import os
 import subprocess
 import sys
 from pathlib import Path
 from textwrap import dedent
-from typing import List
 
 import pytest
 
@@ -27,7 +28,7 @@ def our_tmp_path(tmp_path):
 SETUP_CFG_PATH = Path(__file__).resolve().parent.parent / "setup.cfg"
 
 
-def run_and_check(command: List[str], cwd: Path) -> None:
+def run_and_check(command: list[str], cwd: Path) -> None:
     env = dict(
         os.environ, PYTHONPATH=str(cwd), COVERAGE_PROCESS_START=str(SETUP_CFG_PATH)
     )
