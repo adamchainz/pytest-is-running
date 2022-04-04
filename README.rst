@@ -60,6 +60,16 @@ The package registers its plugin hooks as early as possible in pytest’s proces
 Rationale
 =========
 
-This plugin is an alternative to re-implementing `the pattern in the Pytest documentation <https://docs.pytest.org/en/latest/example/simple.html#detect-if-running-from-within-a-pytest-run>`__.
+This plugin is an alternative to re-implementing `the pattern in the pytest documentation <https://docs.pytest.org/en/latest/example/simple.html#detect-if-running-from-within-a-pytest-run>`__.
 As a plugin, it is loaded earlier than ``conftest.py`` or any other code in your project.
-This makes it a more robust way of checking whether Pytest is currently running.
+This makes it a more robust way of checking whether pytest is currently running.
+
+Upstream `issue #9502 <https://github.com/pytest-dev/pytest/issues/9502>`__ discusses adding a feature to pytest.
+It also covers an alternative which is often “good enough” - a simple check if pytest has been imported with:
+
+.. code-block:: python
+
+    "pytest" in sys.modules
+
+This won’t be strictly accurate if you happen to import pytest outside of your test run, but that is not very common.
+You may prefer to using this simpler technique instead of this plugin.
