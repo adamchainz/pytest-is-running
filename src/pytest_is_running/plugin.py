@@ -5,7 +5,8 @@ import pytest
 import pytest_is_running
 
 
-@pytest.hookimpl(tryfirst=True)
+# pytest missing type hints for @hookimpl
+@pytest.hookimpl(tryfirst=True)  # type: ignore [misc]
 def pytest_load_initial_conftests() -> None:
     pytest_is_running._is_running = True
 
