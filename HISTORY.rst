@@ -2,6 +2,10 @@
 History
 =======
 
+* Remove dependency on pytest.
+
+  Thanks to Luke Plant for the report in `Issue #54 <https://github.com/adamchainz/pytest-is-running/issues/54>`__.
+
 1.2.0 (2022-05-11)
 ------------------
 
