@@ -2,6 +2,9 @@
 History
 =======
 
+1.3.0 (2022-08-19)
+------------------
+
 * Remove dependency on pytest.
 
   Thanks to Luke Plant for the report in `Issue #54 <https://github.com/adamchainz/pytest-is-running/issues/54>`__.
