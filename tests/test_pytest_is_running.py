@@ -8,8 +8,9 @@ from textwrap import dedent
 
 import pytest
 
-# To prevent CoverageWarning in the main process:
 import pytest_is_running  # noqa: F401
+
+# To prevent CoverageWarning in the main process:
 
 
 @pytest.fixture()
