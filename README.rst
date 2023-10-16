@@ -20,6 +20,14 @@ pytest-is-running
 
 pytest plugin providing a function to check if pytest is running.
 
+----
+
+**Working on a Django project?**
+Check out my book `Boost Your Django DX <https://adamchainz.gumroad.com/l/byddx>`__ which covers many ways to improve your development experience.
+I created pytest-is-running whilst working on the book!
+
+----
+
 Installation
 ============
 
@@ -30,14 +38,6 @@ Install with:
     python -m pip install pytest-is-running
 
 Python 3.8 to 3.12 supported.
-
-----
-
-**Working on a Django project?**
-Check out my book `Boost Your Django DX <https://adamchainz.gumroad.com/l/byddx>`__ which covers many ways to improve your development experience.
-I created pytest-is-running whilst working on the book!
-
-----
 
 Usage
 =====
