@@ -26,12 +26,12 @@ def our_tmp_path(tmp_path):
     yield tmp_path
 
 
-SETUP_CFG_PATH = Path(__file__).resolve().parent.parent / "setup.cfg"
+PYPROJECT_PATH = Path(__file__).resolve().parent.parent / "pyproject.toml"
 
 
 def run_and_check(command: list[str], cwd: Path) -> None:
     env = dict(
-        os.environ, PYTHONPATH=str(cwd), COVERAGE_PROCESS_START=str(SETUP_CFG_PATH)
+        os.environ, PYTHONPATH=str(cwd), COVERAGE_PROCESS_START=str(PYPROJECT_PATH)
     )
     subprocess.run(
         [sys.executable] + command,
