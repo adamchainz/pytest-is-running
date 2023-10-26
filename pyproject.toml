@@ -47,6 +47,9 @@ addopts = """\
 
 [tool.coverage.run]
 branch = true
+disable_warnings = [
+    "no-data-collected",  # coverage only in subprocesses
+]
 parallel = true
 source = [
     "pytest_is_running",
