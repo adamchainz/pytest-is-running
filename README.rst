@@ -20,6 +20,20 @@ pytest-is-running
 
 pytest plugin providing a function to check if pytest is running.
 
+Unmaintained (2024-01-02)
+=========================
+
+I stopped maintaining this package as it doesn’t provide much value over checking whether pytest has been imported:
+
+.. code-block:: python
+
+    import sys
+
+    if "pytest" in sys.modules:
+        ...
+
+In every project I’ve seen, pytest is only imported when running.
+
 ----
 
 **Working on a Django project?**

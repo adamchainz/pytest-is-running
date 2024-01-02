@@ -2,6 +2,8 @@
 Changelog
 =========
 
+* Mark as unmaintained.
+
 1.5.0 (2023-07-10)
 ------------------
 
